@@ -21,7 +21,7 @@ if __name__ == "__main__":
     iris_feature = '花萼长度', '花萼宽度', '花瓣长度', '花瓣宽度'
     iris_class = 'Iris-setosa', 'Iris-versicolor', 'Iris-virginica'
 
-    path = '..\\..\\9.Regression\\iris.data'  # 数据文件路径
+    path = 'iris.data'  # 数据文件路径
     data = pd.read_csv(path, header=None)
     x = data[list(range(4))]
     # y = pd.Categorical(data[4]).codes
