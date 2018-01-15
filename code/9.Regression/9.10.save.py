@@ -15,7 +15,7 @@ from sklearn.externals import joblib
 
 
 if __name__ == "__main__":
-    data = pd.read_csv('..\\iris.data', header=None)
+    data = pd.read_csv('iris.data', header=None)
     x = data[[0, 1]]
     y = pd.Categorical(data[4]).codes
     if os.path.exists('iris.model'):

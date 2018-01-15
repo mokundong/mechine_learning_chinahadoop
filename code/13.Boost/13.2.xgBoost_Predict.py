@@ -26,12 +26,12 @@ if __name__ == "__main__":
     bst = xgb.train(param, data_train, num_boost_round=6, evals=watch_list)
     y_hat = bst.predict(data_test)
     result = y_test == y_hat
-    print '正确率:\t', float(np.sum(result)) / len(y_hat)
-    print 'END.....\n'
+    print ('正确率:\t', float(np.sum(result)) / len(y_hat))
+    print ('END.....\n')
 
     models = [('LogisticRegression', LogisticRegressionCV(Cs=10, cv=3)),
               ('RandomForest', RandomForestClassifier(n_estimators=30, criterion='gini'))]
     for name, model in models:
         model.fit(x_train, y_train)
-        print name, '训练集正确率：', accuracy_score(y_train, model.predict(x_train))
-        print name, '测试集正确率：', accuracy_score(y_test, model.predict(x_test))
+        print (name, '训练集正确率：', accuracy_score(y_train, model.predict(x_train)))
+        print (name, '测试集正确率：', accuracy_score(y_test, model.predict(x_test)))

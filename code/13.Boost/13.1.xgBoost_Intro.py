@@ -26,8 +26,8 @@ if __name__ == "__main__":
     # 读取数据
     data_train = xgb.DMatrix('agaricus_train.txt')
     data_test = xgb.DMatrix('agaricus_test.txt')
-    print data_train
-    print type(data_train)
+    print(data_train)
+    print(type(data_train))
 
     # 设置参数
     param = {'max_depth': 3, 'eta': 1, 'silent': 1, 'objective': 'binary:logistic'} # logitraw
@@ -40,10 +40,10 @@ if __name__ == "__main__":
     # 计算错误率
     y_hat = bst.predict(data_test)
     y = data_test.get_label()
-    print y_hat
-    print y
+    print (y_hat)
+    print (y)
     error = sum(y != (y_hat > 0.5))
     error_rate = float(error) / len(y_hat)
-    print '样本总数：\t', len(y_hat)
-    print '错误数目：\t%4d' % error
-    print '错误率：\t%.5f%%' % (100*error_rate)
+    print ('样本总数：\t', len(y_hat))
+    print ('错误数目：\t%4d' % error)
+    print ('错误率：\t%.5f%%' % (100*error_rate))
